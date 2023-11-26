@@ -1,0 +1,121 @@
+どうも上かるびです。
+
+VSCodeはどんどん進化しています。
+<span class="bold marker">今回はVSCode本体に機能が備わることにより不要になった拡張機能を紹介します。</span>
+
+拡張機能１つを削除したからと言って動作が目に見えて軽くなるわけでないかと思いますが、何だかんだ本体の機能が一番効率的だと思いますので不要なものは削除した方がよいと思ってます。
+<h2>2022年10月時点でVSCode本体で補える11個の拡張機能</h2>
+本体の設定方法と合わせてご紹介します。
+
+以下、参考記事です。英語だったので訳しつつ自分でもVSCodeで試しつつ進めました。
+
+<a href="https://javascript.plainenglish.io/10-visual-studio-code-extensions-you-dont-need-6f7904132a57" target="_blank" rel="noopener">https://javascript.plainenglish.io/10-visual-studio-code-extensions-you-dont-need-6f7904132a57</a>
+<div class="speech-wrap sb-id-15 sbs-stn sbp-l sbis-cb cf">
+<div class="speech-person">
+<figure class="speech-icon"><img src="http://onedarling.site/wp-content/uploads/2019/08/c39818ae8d09387b7b49de8eb9733260.png" alt="ネコーダー" class="speech-icon-image" /></figure>
+<div class="speech-name">ネコーダー</div>
+</div>
+<div class="speech-balloon">
+
+Windows/Macなどによってももしかしたら不具合があるかもしれないので、実際に行う際は自己責任でお願いいたします。
+
+</div>
+</div>
+&nbsp;
+
+なおこれから紹介する拡張機能を全てVSCodeの設定に移行した際に追加するコードを最初にまとめておきます。すべての項目と注意事項を読んでからお試しください。
+<pre class="lang:default decode:true" title="setting.json">{ 
+  "editor.linkedEditing": true,
+  "html.autoClosingTags": true,
+  "javascript.autoClosingTags": true,
+  "typescript.autoClosingTags": true,
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "source.organizeImports": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.bracketPairColorization.enabled": true
+}</pre>
+<h3>①Auto Rename Tag</h3>
+<pre class="lang:default decode:true" title="setting.json">"editor.linkedEditing": true</pre>
+<div class="alert-box common-icon-box"><strong>この設定では　.jsx と .vue ファイルの名前は自動変更されないそうです。もし利用する方はまだ残しておいた方がいいかもしれません。</strong></div>
+<h3>②Auto Close Tag</h3>
+こちらも必要に応じて設定を追加してください。
+<pre class="lang:default decode:true" title="setting.json">"html.autoClosingTags": true,
+"javascript.autoClosingTags": true,
+"typescript.autoClosingTags": true</pre>
+<h3>③Auto Import</h3>
+こちらはTypeScriptとTSXで利用可能なインポートに対する補完機能だそうです。
+<pre class="lang:default decode:true " title="setting.json">"javascript.suggest.autoImports": true,
+"typescript.suggest.autoImports": true,
+"javascript.updateImportsOnFileMove.enabled": "always",
+"typescript.updateImportsOnFileMove.enabled": "always",
+"source.organizeImports": true</pre>
+<h3>④Setting Sync</h3>
+異なるPC間で同期させる機能です。私もずっと入れてましたが2年前に本体に追加されてたそうです。。。
+
+設定の詳細は<a href="https://code.visualstudio.com/docs/editor/settings-sync" target="_blank" rel="noopener">VSCodeの公式ドキュメント</a>を参照してください。
+<h3>⑤Trailing Space</h3>
+行末尾のスペースのハイライト、削除機能です。
+
+こちらは本体で保存時に自動削除できる機能が備わっています。
+<pre class="lang:default decode:true " title="setting.json">"files.trimTrailingWhitespace": true,</pre>
+<h3>⑥Path Intellisense</h3>
+パスとファイル名の自動補完です。
+
+こちらはVSCodeでデフォルトで有効になっているため特に設定は必要ないです。
+<h3>⑦NPM</h3>
+コマンドでnpmスクリプトを実行できる拡張機能らしいです。
+
+こちらもVSCodeの<a href="https://code.visualstudio.com/Docs/editor/tasks#_task-autodetection" target="_blank" rel="noopener">「Task Auto Detection」</a>という機能で代替可能だそう。
+<h3>⑧HTML Snippets</h3>
+この拡張機能のほかに「<a href="https://marketplace.visualstudio.com/items?itemName=joy-yu.css-snippets">CSS Snippets</a>」「<a href="https://marketplace.visualstudio.com/items?itemName=sidthesloth.html5-boilerplate">HTML Boilerplate</a>」も同様の機能を有しているそうです。
+
+これらもVSCodeの有名な「Emmet」で代替可能です。Emmetは独自にカスタマイズできるので便利ですよね。
+<div class="speech-wrap sb-id-22 sbs-stn sbp-r sbis-cb cf">
+<div class="speech-person">
+<figure class="speech-icon"><img src="https://onedarling.site/wp-content/uploads/2020/01/cropped-fe18d54af046e104840eb5703ac171e9.png" alt="上かるび" class="speech-icon-image" /></figure>
+<div class="speech-name">上かるび</div>
+</div>
+<div class="speech-balloon">
+
+言語ごとに設定できるし重宝してる
+
+</div>
+</div>
+<h3>⑨HTML Tag Wrap</h3>
+こちらの代替は、
+
+Ctrl(Cmd) + Shift + P でコマンドパレットを開き、
+<pre class="lang:default decode:true ">Emmet: Wrap with abbreviation</pre>
+を入力してタグを入力すればできるそうです。
+<div class="memo-box common-icon-box">この拡張機能に関してはAlt(Option) + W ですぐにタグを追加できるのが便利なので、そのままでいいかなと個人的に思います。以下デモ。</div>
+<div><img src="https://onedarling.site/wp-content/uploads/2022/10/a4279d29b798ebdc43e5c4a0bf27aa52.gif" alt="" width="508" height="258" class="alignnone size-full wp-image-5428" /></div>
+<div></div>
+<div>またTwitterで教えていただいたのですが、以下の記事を参考にすればショートカットで設定できます。教えていただきありがとうございました！</div>
+<div><a href="https://qiita.com/MToyokura/items/da4fb3477affd0278506" target="_blank" rel="noopener">https://qiita.com/MToyokura/items/da4fb3477affd0278506</a></div>
+<div></div>
+<h3>⑩Lorem Ipsum</h3>
+この拡張機能ではLorem Ipsumテキストを挿入できるそうです。
+<div class="information-box common-icon-box">Lorem Ipsumテキストはいわゆるダミー文章みたいなものらしいです。</div>
+<div>こちらもVSCode上で「lorem」と入力してエンター押すとすぐにダミー文章が生成されます！</div>
+<div>
+<div class="speech-wrap sb-id-15 sbs-stn sbp-l sbis-cb cf">
+<div class="speech-person">
+<figure class="speech-icon"><img src="http://onedarling.site/wp-content/uploads/2019/08/c39818ae8d09387b7b49de8eb9733260.png" alt="ネコーダー" class="speech-icon-image" /></figure>
+<div class="speech-name">ネコーダー</div>
+</div>
+<div class="speech-balloon">
+
+これ知らんかったけどめちゃくちゃ便利やな！日本語バージョンもあったりして…
+
+</div>
+</div>
+</div>
+<h3>⑪Bracket Pair Colorizer（1と2）</h3>
+こちらがデフォルト機能に備わったのはわりと有名な気がしますね。
+
+以下の設定で有効化できます。
+<pre class="lang:default decode:true " title="setting.json">"editor.bracketPairColorization.enabled": true</pre>
+定期的にこういうリリースノートはチェックしていきたいところですね。
